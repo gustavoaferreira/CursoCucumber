@@ -5,10 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.junit.Assert;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.Assert;
 
 public class AprenderCucumber {
 
@@ -41,18 +42,15 @@ public class AprenderCucumber {
 
 	@Then("o valor do contador sera (\\d+)$")
 	public void o_valor_do_contador_ser(Integer int1) {
-	    Assert.assertEquals(int1.doubleValue(), Double.valueOf(contador));
+	    Assert.assertEquals(Double.valueOf(int1), Double.valueOf(contador));
 	}
 	
 	Date entrega = new Date();
 	
-	@Given("que a entrega e dia (\\d+)/(\\d+)/(\\d+)$")
-	public void que_a_entrega_e_dia(Integer dia, Integer mes, Integer ano) {
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.DAY_OF_MONTH, dia);
-		cal.set(Calendar.MONTH, mes - 1);
-		cal.set(Calendar.YEAR, ano);
-		entrega = cal.getTime();
+	@Given("que a entrega e dia {data}")
+	public void que_a_entrega_e_dia(Date data) {
+		entrega = data;
+		System.out.println(entrega);
 	}
 
 	@When("a entrega atrasa em (\\d+) (dia|dias|mes|meses)$")
