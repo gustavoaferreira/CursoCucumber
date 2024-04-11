@@ -11,50 +11,50 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AprenderCucumber {
+public class AprenderCucumberSteps {
 
 	@Given("que criei o arquivo corretamente")
-	public void que_criei_o_arquivo_corretamente() {
+	public void que_criei_o_arquivo_corretamente() throws Throwable {
 
 	}
 
 	@When("executa-lo")
-	public void executa_lo() {
+	public void executa_lo() throws Throwable {
 
 	}
 
 	@Then("a especificacao deve finalizar com sucesso")
-	public void a_especificacao_deve_finalizar_com_sucesso() {
+	public void a_especificacao_deve_finalizar_com_sucesso() throws Throwable {
 
 	}
 	
 	private int contador = 0;
 	
 	@Given("que o valor do contador e (\\d+)$")
-	public void que_o_valor_do_contador(Integer int1) {
+	public void que_o_valor_do_contador(Integer int1) throws Throwable {
 	    contador = int1;
 	}
 
 	@When("eu incrementar em (\\d+)$")
-	public void eu_incrementar_em(Integer int1) {
+	public void eu_incrementar_em(Integer int1) throws Throwable {
 	    contador = contador + int1;
 	}
 
 	@Then("o valor do contador sera (\\d+)$")
-	public void o_valor_do_contador_ser(Integer int1) {
+	public void o_valor_do_contador_ser(Integer int1) throws Throwable {
 	    Assert.assertEquals(Double.valueOf(int1), Double.valueOf(contador));
 	}
 	
 	Date entrega = new Date();
 	
 	@Given("que a entrega e dia {data}")
-	public void que_a_entrega_e_dia(Date data) {
+	public void que_a_entrega_e_dia(Date data) throws Throwable {
 		entrega = data;
 		System.out.println(entrega);
 	}
 
 	@When("a entrega atrasa em (\\d+) (dia|dias|mes|meses)$")
-	public void a_entrega_atrasa_em_dias(Integer int1, String tempo) {
+	public void a_entrega_atrasa_em_dias(Integer int1, String tempo) throws Throwable {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(entrega);
 		if(tempo.equals("dias")) {
@@ -67,34 +67,39 @@ public class AprenderCucumber {
 	}
 
 	@Then("a entrega sera efetuada em (\\d{2}\\/\\d{2}\\/\\d{4})$")
-	public void a_entrega_sera_efetuada_em(String data) {
+	public void a_entrega_sera_efetuada_em(String data) throws Throwable {
 		DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		String dataFormatada = format.format(entrega);
 		Assert.assertEquals(data, dataFormatada);
 	}
 	
 	@Given("que o ticket( especial)? e (A.\\d{3})$")
-	public void queOTicketEAF(String tipo, String arg1) {
+	public void queOTicketEAF(String tipo, String arg1) throws Throwable {
 	    
 	}
+	
 	@Given("que o valor da passagem e R\\$ (\\d+),(\\d+)$")
-	public void queOValorDaPassagemER$(Integer int1, int arg2) {
+	public void queOValorDaPassagemER$(Integer int1, Integer int2) throws Throwable {
 	    
 	}
+	
 	@Given("que o nome do passageiro e \"(.{5,20})\"$")
-	public void queONomeDoPassageiroE(String arg1) {
+	public void queONomeDoPassageiroE(String arg1) throws Throwable {
 	    
 	}
+	
 	@Given("que o telefone do passageiro e (9\\d{3}-\\d{4})$")
-	public void queOTelefoneDoPassageiro(String telefone) {
+	public void queOTelefoneDoPassageiro(String telefone) throws Throwable {
 
 	}
+	
 	@When("criar os steps")
-	public void criarOsSteps() {
+	public void criarOsSteps() throws Throwable {
 
 	}
+	
 	@Then("o teste vai funcionar")
-	public void oTesteVaiFuncionar() {
+	public void oTesteVaiFuncionar() throws Throwable {
 
 	}
 
